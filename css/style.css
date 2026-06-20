@@ -1375,8 +1375,8 @@ textarea:focus-visible {
 }
 .timeline-text { flex: 1; min-width: 0; }
 .timeline-video {
-  flex: 0 0 260px;
-  width: 260px;
+  flex: 0 0 390px;
+  width: 390px;
   border-radius: var(--radius);
   overflow: hidden;
   display: block;
