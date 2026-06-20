@@ -2012,7 +2012,7 @@ textarea:focus-visible {
 
 .palmares-athlete { font-weight: 700; color: var(--ink); }
 
-.palmares-cat { font-size: 0.82rem; color: rgba(13,10,7,0.5); }
+.palmares-cat { font-size: 0.82rem; color: rgba(13,10,7,0.5); text-align: center; }
 
 .palmares-label {
   font-size: 0.68rem;
