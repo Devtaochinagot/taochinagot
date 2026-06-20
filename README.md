@@ -31,7 +31,8 @@ Aucune dépendance, aucun build. Toutes les pages fonctionnent en ouvrant direct
 ### Navigation
 
 - **Kung-Fu** → sous-menu : Taolu · Sanda / Boxe chinoise
-- **Compétition** → sous-menu par année : 2026 · 2025 · 2024 · 2023 · 2022 · 2021
+- **Compétition** → sous-menu : Événements à venir · (séparateur) · 2026 · 2025 · 2024 · 2023 · 2022 · 2021
+- **Événements** supprimé de la nav principale → redirige vers `palmares.html#evenements`
 
 ---
 
@@ -43,7 +44,12 @@ css/
   style.css          → design system complet + tous les styles
 js/
   main.js            → burger mobile, accordéon FAQ, ombre header, dropdown touch
-img/                 → images du site (logo, coachs, dojos, compétitions)
+img/
+  logo.png
+  hero-sanda.jpg / hero-tao.jpg
+  equipe-yann.jpg / equipe-vincent.jpg / equipe-philippe.jpg / equipe-candice.jpg
+  dojo-sene.jpg / dojo-surzur.jpg / dojo-plaudren.jpg   ← photos réelles des 3 dojos
+  video-wushu-thumb.jpg                                  ← thumbnail vidéo accueil
 pages/
   notre-histoire.html
   kung-fu.html
@@ -129,6 +135,8 @@ Résultats organisés par année (2026 → 2021), ancres `#2026` … `#2021` pou
 
 Chaque événement contient : eyebrow (type de compétition), titre (ville), date/lieu, badges de médailles (Or/Argent/Bronze), grille de résultats avec dot coloré par médaille, note narrative, placeholders photo/vidéo.
 
+**Grille résultats** : `grid-template-columns: 10px 1fr 1fr 1fr` — 3 colonnes égales (nom / catégorie / médaille). La catégorie est centrée via `justify-self: center`, la médaille alignée à droite via `justify-self: end`.
+
 **Photos et vidéos à intégrer** : le client fournira les fichiers — remplacer les blocs `.palmares-media-placeholder`.
 
 ---
@@ -151,7 +159,6 @@ Les iframes YouTube ont été remplacées par des cards thumbnail cliquables (im
 
 ## Prochaines étapes
 
-1. Intégrer les vraies photos (coachs, dojos, compétitions) — remplacer les blocs image placeholder
-2. Intégrer photos et vidéos des événements dans la page Compétition
-3. Brancher le formulaire de contact sur un service d'envoi d'email (Formspree, Netlify Forms, etc.)
-4. Ajouter un `sitemap.xml` si déploiement sur un domaine indexé
+1. Intégrer photos et vidéos des événements dans la page Compétition (remplacer `.palmares-media-placeholder`)
+2. Brancher le formulaire de contact sur un service d'envoi d'email (Formspree, Netlify Forms, etc.)
+3. Ajouter un `sitemap.xml` si déploiement sur un domaine indexé
