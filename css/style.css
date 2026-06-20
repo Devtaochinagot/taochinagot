@@ -2085,3 +2085,59 @@ textarea:focus-visible {
     grid-column: 3;
   }
 }
+
+/* ── Dropdown divider ─────────────────────────────────────────────────── */
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 4px 0.75rem;
+  pointer-events: none;
+}
+
+/* ── Section événements à venir (palmares.html#evenements) ────────────── */
+.evenements-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+
+.evenement-card {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--paper-warm);
+  border-left: 3px solid var(--lacquer);
+  background: var(--white);
+}
+
+.evenement-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.2rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--paper-warm);
+}
+
+.evenement-mois {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lacquer);
+  font-weight: 600;
+}
+
+.evenement-jour {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-variation-settings: 'opsz' 72, 'wght' 300;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.evenement-body h3 { margin: 0.3rem 0 0.6rem; font-size: 1.1rem; }
+.evenement-body p  { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 1rem; }
+
+@media (max-width: 540px) {
+  .evenement-card { grid-template-columns: 1fr; }
+  .evenement-date { flex-direction: row; gap: 0.5rem; padding-right: 0; border-right: none; border-bottom: 1px solid var(--paper-warm); padding-bottom: 0.75rem; }
+}
