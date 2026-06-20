@@ -2141,3 +2141,9 @@ textarea:focus-visible {
   .evenement-card { grid-template-columns: 1fr; }
   .evenement-date { flex-direction: row; gap: 0.5rem; padding-right: 0; border-right: none; border-bottom: 1px solid var(--paper-warm); padding-bottom: 0.75rem; }
 }
+
+/* ── Vidéo Notre Histoire ─────────────────────────────────────────────── */
+.histoire-video {
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+}
