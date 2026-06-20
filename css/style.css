@@ -1368,6 +1368,24 @@ textarea:focus-visible {
 
 .timeline-content p:last-of-type { margin-bottom: 0; }
 
+.timeline-content--with-video {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.timeline-text { flex: 1; min-width: 0; }
+.timeline-video {
+  flex: 0 0 260px;
+  width: 260px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: block;
+}
+@media (max-width: 640px) {
+  .timeline-content--with-video { flex-direction: column; }
+  .timeline-video { width: 100%; flex: none; }
+}
+
 .timeline-content strong {
   color: rgba(248,242,230,0.9);
   font-weight: 600;
