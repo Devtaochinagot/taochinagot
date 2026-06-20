@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Éditeur / outils locaux
+.claude/
+
+# Secrets (au cas où)
+.env
+.env.*
+
+# Fichiers temporaires
+*.log
+*~
