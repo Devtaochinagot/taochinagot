@@ -1985,14 +1985,13 @@ textarea:focus-visible {
 
 .palmares-result {
   display: grid;
-  grid-template-columns: 10px 1fr 1fr auto;
+  grid-template-columns: 10px 1fr 1fr 1fr;
   gap: 0.5rem 1rem;
   align-items: center;
   padding: 0.7rem 1.1rem;
   border-bottom: 1px solid var(--paper-warm);
   font-size: 0.9rem;
 }
-
 .palmares-result:last-child { border-bottom: none; }
 
 .palmares-result--or     { background: rgba(196,151,46,0.04); }
@@ -2012,7 +2011,12 @@ textarea:focus-visible {
 
 .palmares-athlete { font-weight: 700; color: var(--ink); }
 
-.palmares-cat { font-size: 0.82rem; color: rgba(13,10,7,0.5); text-align: left; }
+.palmares-cat {
+  font-size: 0.82rem;
+  color: rgba(13,10,7,0.5);
+  justify-self: center;
+  text-align: left;
+}
 
 .palmares-label {
   font-size: 0.68rem;
@@ -2020,6 +2024,7 @@ textarea:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  justify-self: end;
   text-align: right;
 }
 
