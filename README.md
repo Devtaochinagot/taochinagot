@@ -5,8 +5,9 @@ Site statique (HTML/CSS/JS vanilla, zéro framework, zéro build) pour le club d
 ## Lancer en local
 
 ```bash
-python3 -m http.server 8000
-# http://localhost:8000
+cd /Users/perso/Downloads/taochinagot
+python3 -m http.server 8080
+# http://localhost:8080
 ```
 
 Aucune dépendance, aucun build. Toutes les pages fonctionnent en ouvrant directement `index.html`.
@@ -23,7 +24,7 @@ Aucune dépendance, aucun build. Toutes les pages fonctionnent en ouvrant direct
 | Équipe | `pages/equipe.html` | ✅ Terminée |
 | Cours & Tarifs | `pages/cours.html` | ✅ Terminée |
 | Compétition | `pages/palmares.html` | ✅ Terminée |
-| Événements | `pages/evenements.html` | ✅ Terminée |
+| Événements | `pages/evenements.html` | ↪ Redirige vers `palmares.html#evenements` |
 | FAQ | `pages/faq.html` | ✅ Terminée |
 | Contact | `pages/contact.html` | ✅ Terminée |
 | Agenda | `pages/agenda.html` | ✅ Terminée |
@@ -48,21 +49,21 @@ img/
   logo.png
   hero-sanda.jpg / hero-tao.jpg
   equipe-yann.jpg / equipe-vincent.jpg / equipe-philippe.jpg / equipe-candice.jpg
-  dojo-sene.jpg / dojo-surzur.jpg / dojo-plaudren.jpg   ← photos réelles des 3 dojos
-  video-wushu-thumb.jpg                                  ← thumbnail vidéo accueil
+  dojo-sene.jpg / dojo-surzur.jpg / dojo-plaudren.jpg
+  taolu-mains-nues.jpg / taolu-armes.jpg / taolu-competition.jpg
+  sanda-pied-poing.jpg / sanda-projection.jpg / sanda-competition.jpg
+  home-sanda.jpg
+  video-wushu-thumb.jpg
 pages/
   notre-histoire.html
   kung-fu.html
   equipe.html
   cours.html
-  cours-tarifs.html
   palmares.html
-  evenements.html
+  evenements.html     ← meta-refresh vers palmares.html#evenements
   agenda.html
   faq.html
   contact.html
-  sanda.html
-  taolu.html
 ```
 
 ---
@@ -86,7 +87,7 @@ pages/
 
 ### Typographie
 
-- **Display** (titres) : `Fraunces` — variable font, serif, utilisé avec `font-variation-settings`
+- **Display** (titres) : `Fraunces` — variable font, serif
 - **Corps** : `Plus Jakarta Sans` — lisible, moderne
 - Échelle en `clamp()` pour fluidité mobile → desktop
 
@@ -96,15 +97,17 @@ pages/
 - `.eyebrow` — label au-dessus des titres de section
 - `.section-head` (+ `.center`) — bloc titre + description
 - `.card-grid` / `.discipline-card` — grille disciplines
-- `.dojo-grid` / `.dojo-card` — grille des 3 dojos
-- `.coach-grid` / `.coach-card` — fiches coachs
+- `.discipline-card--photo` — cover card avec image plein cadre, titre visible, texte au survol
+- `.discipline-card--ink` — cover card sans photo (fond dégradé sombre)
+- `.dojo-grid` / `.dojo-card` — grille des 3 dojos avec photos réelles
+- `.coach-grid` / `.coach-card` — fiches coachs (photos carrées, object-fit contain)
 - `.faq-list` / `.faq-item` — accordéon FAQ
 - `.page-hero` — bandeau titre de chaque sous-page
 - `.contact-grid` / `.contact-form` / `.location-card` — page Contact
 - `.taolu-video-ratio` / `.taolu-video-thumb-link` — thumbnails vidéo YouTube cliquables
+- `.timeline-section` / `.timeline-item` / `.timeline-content` — timeline Notre Histoire (fond clair)
 - `.palmares-year-group`, `.palmares-event`, `.palmares-result`, `.palmares-medal-dot` — page Compétition
 - `.footer-social` — liens réseaux sociaux en footer
-- `.contact-socials` — bloc réseaux sur la page Contact
 
 ---
 
@@ -133,17 +136,24 @@ Présents dans le footer de toutes les pages et sur la page Contact.
 
 Résultats organisés par année (2026 → 2021), ancres `#2026` … `#2021` pour la navigation directe depuis le sous-menu.
 
-Chaque événement contient : eyebrow (type de compétition), titre (ville), date/lieu, badges de médailles (Or/Argent/Bronze), grille de résultats avec dot coloré par médaille, note narrative, placeholders photo/vidéo.
+Chaque événement contient : eyebrow (type de compétition), titre (ville), date/lieu, badges de médailles (Or/Argent/Bronze), grille de résultats, note narrative, placeholders photo/vidéo.
 
-**Grille résultats** : `grid-template-columns: 10px 1fr 1fr 1fr` — 3 colonnes égales (nom / catégorie / médaille). La catégorie est centrée via `justify-self: center`, la médaille alignée à droite via `justify-self: end`.
-
-**Photos et vidéos à intégrer** : le client fournira les fichiers — remplacer les blocs `.palmares-media-placeholder`.
+**Grille résultats** : `grid-template-columns: 10px 1fr 1fr 1fr` — 3 colonnes égales (nom / catégorie / médaille). Catégorie centrée via `justify-self: center`, médaille alignée à droite via `justify-self: end`.
 
 ---
 
-## Vidéos Kung-Fu
+## Vidéos
 
-Les iframes YouTube ont été remplacées par des cards thumbnail cliquables (image CDN YouTube `hqdefault.jpg` + overlay play SVG). Raison : les vidéos concernées bloquent l'embedding (Error 153). Les cards ouvrent la vidéo sur YouTube dans un nouvel onglet.
+Les iframes YouTube ont été remplacées par des cards thumbnail cliquables (image CDN YouTube `hqdefault.jpg` + overlay play SVG). Raison : les vidéos concernées bloquent l'embedding (Error 153).
+
+---
+
+## Sécurité
+
+- Tous les liens externes utilisent `rel="noopener noreferrer"`
+- Aucun secret, clé API ou token dans le code
+- Aucun `innerHTML` ou `eval()` dans le JS
+- Formulaire de contact : `action="#"` — **à brancher** sur Formspree ou Netlify Forms avant mise en production
 
 ---
 
@@ -153,12 +163,14 @@ Les iframes YouTube ont été remplacées par des cards thumbnail cliquables (im
 - Gong Fang : pas de page dédiée (pas de cours actif), mentionné sur l'accueil uniquement
 - Pas de témoignages clients au lancement
 - Compétition : ordre chronologique décroissant (plus récent en tête)
-- Fond des sections de contenu texte : `var(--paper)` (pas de `bg-ink` sur les longues sections de lecture)
+- Cartes disciplines accueil : Sanda (photo) et Taolu (fond sombre) sont cliquables vers `kung-fu.html#sanda` / `#taolu`
 
 ---
 
 ## Prochaines étapes
 
 1. Intégrer photos et vidéos des événements dans la page Compétition (remplacer `.palmares-media-placeholder`)
-2. Brancher le formulaire de contact sur un service d'envoi d'email (Formspree, Netlify Forms, etc.)
-3. Ajouter un `sitemap.xml` si déploiement sur un domaine indexé
+2. Brancher le formulaire de contact sur Formspree ou Netlify Forms
+3. Ajouter un `sitemap.xml` avant déploiement
+4. Ajouter une photo pour la carte Taolu sur l'accueil (actuellement fond sombre)
+5. Ajouter une photo pour la carte Gong Fang sur l'accueil (actuellement fond sombre)
