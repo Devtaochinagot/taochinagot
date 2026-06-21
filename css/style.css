@@ -687,8 +687,8 @@ textarea:focus-visible {
 }
 
 .discipline-card {
-  background: rgba(255, 253, 249, 0.03);
-  border: 1px solid rgba(196, 151, 46, 0.16);
+  background: var(--white);
+  border: 1px solid rgba(196, 151, 46, 0.2);
   border-radius: var(--radius);
   padding: var(--space-md);
   display: flex;
@@ -697,8 +697,8 @@ textarea:focus-visible {
 }
 
 .discipline-card:hover {
-  border-color: rgba(196, 151, 46, 0.45);
-  background: rgba(255, 253, 249, 0.05);
+  border-color: rgba(196, 151, 46, 0.55);
+  background: var(--white);
 }
 
 .discipline-card--photo {
@@ -764,14 +764,14 @@ textarea:focus-visible {
 }
 
 .discipline-card h3 {
-  color: var(--white);
+  color: var(--ink);
   margin-bottom: 0.8rem;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-variation-settings: 'opsz' 36, 'wght' 700, 'WONK' 1;
 }
 
 .discipline-card p {
-  color: rgba(248, 242, 230, 0.55);
+  color: rgba(13, 10, 7, 0.62);
   font-size: 0.93rem;
   margin-bottom: 1.3rem;
   flex: 1;
