@@ -736,15 +736,18 @@ textarea:focus-visible {
   color: var(--white);
   margin-bottom: 0;
   font-size: clamp(1.3rem, 2vw, 1.8rem);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 .discipline-card-overlay p {
-  color: rgba(255,253,249,0.82);
-  font-size: 0.93rem;
-  line-height: 1.7;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.65;
   margin: 0.7rem 0 0;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
   transition: max-height 0.4s ease, opacity 0.35s ease;
 }
 .discipline-card--photo:hover .discipline-card-overlay p {
