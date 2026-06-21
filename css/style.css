@@ -733,22 +733,26 @@ textarea:focus-visible {
   background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%);
 }
 .discipline-card-overlay h3 {
-  color: var(--white);
+  color: #fff;
   margin-bottom: 0;
   font-size: clamp(1.3rem, 2vw, 1.8rem);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 .discipline-card-overlay p {
   color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.65;
-  margin: 0.7rem 0 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0.8rem 0 0;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
   transition: max-height 0.4s ease, opacity 0.35s ease;
+}
+.discipline-card--photo:hover .discipline-card-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.15) 100%);
 }
 .discipline-card--photo:hover .discipline-card-overlay p {
   max-height: 10rem;
