@@ -719,6 +719,9 @@ textarea:focus-visible {
 .discipline-card--photo:hover .discipline-card-bg {
   transform: scale(1.04);
 }
+.discipline-card--ink {
+  background: linear-gradient(135deg, var(--ink-soft), var(--ink));
+}
 .discipline-card-overlay {
   position: absolute;
   inset: 0;
@@ -729,16 +732,13 @@ textarea:focus-visible {
   background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.18) 55%, transparent 100%);
   transition: background 0.35s ease;
 }
-.discipline-card--photo:hover .discipline-card-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%);
-}
-.discipline-card-overlay h3 {
+.discipline-card--photo .discipline-card-overlay h3 {
   color: #fff;
   margin-bottom: 0;
   font-size: clamp(1.3rem, 2vw, 1.8rem);
   text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
-.discipline-card-overlay p {
+.discipline-card--photo .discipline-card-overlay p {
   color: #fff;
   font-family: var(--font-body);
   font-size: 1.05rem;
@@ -752,7 +752,7 @@ textarea:focus-visible {
   transition: max-height 0.4s ease, opacity 0.35s ease;
 }
 .discipline-card--photo:hover .discipline-card-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.15) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.1) 100%);
 }
 .discipline-card--photo:hover .discipline-card-overlay p {
   max-height: 10rem;
