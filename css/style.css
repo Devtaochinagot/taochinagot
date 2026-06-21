@@ -1919,6 +1919,9 @@ textarea:focus-visible {
   color: rgba(248, 242, 230, 0.65);
   text-align: center;
 }
+#sanda .taolu-video-title {
+  color: rgba(13, 10, 7, 0.65);
+}
 
 /* ── Section vidéo ── */
 .video-section { background: var(--ink); color: var(--paper); }
