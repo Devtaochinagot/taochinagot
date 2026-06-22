@@ -85,4 +85,48 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  // --- Formulaire contact : envoi via client mail (en attendant Formspree) ---
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    const dojoLabels = {
+      sene: 'Séné — Complexe sportif Le Derf',
+      surzur: 'Surzur — Salle omnisport',
+      plaudren: 'Plaudren — Salle Ty An Holl',
+    };
+    const disciplineLabels = {
+      sanda: 'Sanda — Boxe chinoise',
+      taolu: 'Taolu — Formes',
+      'les-deux': 'Les deux',
+    };
+    const publicLabels = {
+      enfant: 'Enfant (moins de 14 ans)',
+      ado: 'Adolescent (14–17 ans)',
+      adulte: 'Adulte (18 ans et +)',
+    };
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(contactForm);
+      const nom = String(data.get('nom') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const message = String(data.get('message') || '').trim();
+      const dojo = dojoLabels[data.get('dojo')] || 'Non précisé';
+      const discipline = disciplineLabels[data.get('discipline')] || 'Non précisé';
+      const publicCible = publicLabels[data.get('public')] || 'Non précisé';
+
+      const subject = `Contact Taochinagot — ${nom}`;
+      const body = [
+        `Nom : ${nom}`,
+        `E-mail : ${email}`,
+        `Dojo souhaité : ${dojo}`,
+        `Discipline : ${discipline}`,
+        `Public : ${publicCible}`,
+        '',
+        message,
+      ].join('\n');
+
+      window.location.href = `mailto:contact@taochinagot.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 });
