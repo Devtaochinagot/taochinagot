@@ -52,6 +52,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- Overlays au tap (mobile/tablette tactile) ---
+  // Premier tap = révèle l'overlay ; deuxième tap = navigue (si lien)
+  const overlayCards = document.querySelectorAll('.discipline-card--photo, .dojo-card');
+  if (overlayCards.length) {
+    overlayCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (window.innerWidth >= 980) return; // desktop : géré par CSS hover
+        if (!this.classList.contains('is-active')) {
+          e.preventDefault();
+          overlayCards.forEach(c => c.classList.remove('is-active'));
+          this.classList.add('is-active');
+        }
+        // deuxième tap : laisser naviguer normalement
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.discipline-card--photo, .dojo-card')) {
+        overlayCards.forEach(c => c.classList.remove('is-active'));
+      }
+    });
+  }
+
   // --- Header : ombre légère au scroll (subtil) ---
   const header = document.querySelector('.site-header');
   if (header) {
