@@ -571,6 +571,7 @@ textarea:focus-visible {
   left: 0; width: 55%;
   clip-path: polygon(0 0, 95% 0, 87% 100%, 0 100%);
   background-color: #1a1008;
+  background-position: 20% center;
 }
 
 /* Panel Sanda : couvre la moitié droite (55% de large), coupure diagonale sur le bord gauche */
@@ -578,6 +579,12 @@ textarea:focus-visible {
   right: 0; width: 55%;
   clip-path: polygon(13% 0, 100% 0, 100% 100%, 5% 100%);
   background-color: #0f0a04;
+  background-position: 80% center;
+}
+
+@media (min-width: 768px) {
+  .hero-bg-tao   { background-position: center; }
+  .hero-bg-sanda { background-position: center; }
 }
 
 /* Overlay global pour lisibilité du texte */
