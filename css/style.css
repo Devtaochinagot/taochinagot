@@ -144,7 +144,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
   font-weight: 700;
   font-variation-settings: 'opsz' 72, 'wght' 700, 'WONK' 1;
   letter-spacing: -0.022em;
