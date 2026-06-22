@@ -2214,14 +2214,25 @@ textarea:focus-visible {
 .competition-label--bronze { color: #8a4c10; }
 
 .competition-note {
-  font-size: 0.87rem;
-  color: rgba(13,10,7,0.58);
-  border-left: 2px solid rgba(196,151,46,0.3);
-  padding-left: 0.9rem;
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  background: var(--paper-warm);
+  border-left: 3px solid var(--gold-soft);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0 0.75rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  line-height: 1.75;
+}
+
+.competition-note-coaches {
+  display: block;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(196,151,46,0.25);
+  font-size: 0.8rem;
+  color: rgba(13,10,7,0.5);
   font-style: italic;
-  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
 .competition-media {
