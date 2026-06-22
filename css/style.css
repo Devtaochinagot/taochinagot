@@ -374,7 +374,7 @@ textarea:focus-visible {
 
 .mobile-has-sub.open .mobile-toggle { transform: rotate(180deg); }
 
-.mobile-sub-list {
+.mobile-menu .mobile-sub-list {
   display: none;
   flex-direction: column;
   gap: 0.6rem;
@@ -571,14 +571,14 @@ textarea:focus-visible {
   left: 0; width: 100%;
   clip-path: polygon(0 0, 58% 0, 48% 100%, 0 100%);
   background-color: #1a1008;
-  background-position: 30% center;
+  background-position: 55% center;
 }
 
 .hero-bg-sanda {
   right: 0; width: 100%;
   clip-path: polygon(52% 0, 100% 0, 100% 100%, 42% 100%);
   background-color: #0f0a04;
-  background-position: 70% center;
+  background-position: 45% center;
 }
 
 /* Desktop : panneaux à 55%, position centrée */
