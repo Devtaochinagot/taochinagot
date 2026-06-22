@@ -2087,11 +2087,11 @@ textarea:focus-visible {
    PALMARÈS
    ============================================================ */
 
-.palmares-year-group {
+.competition-year-group {
   margin-bottom: 4rem;
 }
 
-.palmares-year-label {
+.competition-year-label {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 5.5rem);
   font-variation-settings: 'opsz' 72, 'wght' 300, 'WONK' 0;
@@ -2103,17 +2103,17 @@ textarea:focus-visible {
   opacity: 0.85;
 }
 
-.palmares-event {
+.competition-event {
   margin-bottom: 2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: 1px solid var(--paper-warm);
 }
 
-.palmares-event:last-child { border-bottom: none; margin-bottom: 0; }
+.competition-event:last-child { border-bottom: none; margin-bottom: 0; }
 
-.palmares-event--stage .palmares-event-header h3 { color: var(--jade); }
+.competition-event--stage .competition-event-header h3 { color: var(--jade); }
 
-.palmares-event-header {
+.competition-event-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -2122,19 +2122,19 @@ textarea:focus-visible {
   flex-wrap: wrap;
 }
 
-.palmares-event-header h3 {
+.competition-event-header h3 {
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   margin-bottom: 0.2rem;
   margin-top: 0.3rem;
 }
 
-.palmares-meta {
+.competition-meta {
   font-size: 0.82rem;
   color: rgba(13,10,7,0.45);
   margin: 0;
 }
 
-.palmares-tally {
+.competition-tally {
   display: flex;
   gap: 0.4rem;
   flex-shrink: 0;
@@ -2143,7 +2143,7 @@ textarea:focus-visible {
   padding-top: 0.3rem;
 }
 
-.palmares-tally-item {
+.competition-tally-item {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -2153,18 +2153,18 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
-.palmares-tally--or     { background: rgba(196,151,46,0.13); color: #8a6810; }
-.palmares-tally--argent { background: rgba(140,150,165,0.13); color: #606878; }
-.palmares-tally--bronze { background: rgba(165,90,25,0.11);   color: #8a4c10; }
+.competition-tally--or     { background: rgba(196,151,46,0.13); color: #8a6810; }
+.competition-tally--argent { background: rgba(140,150,165,0.13); color: #606878; }
+.competition-tally--bronze { background: rgba(165,90,25,0.11);   color: #8a4c10; }
 
-.palmares-results {
+.competition-results {
   border: 1px solid var(--paper-warm);
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 1rem;
 }
 
-.palmares-result {
+.competition-result {
   display: grid;
   grid-template-columns: 10px 1fr 1fr 1fr;
   gap: 0.5rem 1rem;
@@ -2173,12 +2173,12 @@ textarea:focus-visible {
   border-bottom: 1px solid var(--paper-warm);
   font-size: 0.9rem;
 }
-.palmares-result:last-child { border-bottom: none; }
+.competition-result:last-child { border-bottom: none; }
 
-.palmares-result--or     { background: rgba(196,151,46,0.04); }
-.palmares-result--argent { background: rgba(140,150,165,0.03); }
+.competition-result--or     { background: rgba(196,151,46,0.04); }
+.competition-result--argent { background: rgba(140,150,165,0.03); }
 
-.palmares-medal-dot {
+.competition-medal-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -2186,20 +2186,20 @@ textarea:focus-visible {
   flex-shrink: 0;
 }
 
-.palmares-result--or     .palmares-medal-dot { background: var(--gold); }
-.palmares-result--argent .palmares-medal-dot { background: #a0a8b4; }
-.palmares-result--bronze .palmares-medal-dot { background: #b87333; }
+.competition-result--or     .competition-medal-dot { background: var(--gold); }
+.competition-result--argent .competition-medal-dot { background: #a0a8b4; }
+.competition-result--bronze .competition-medal-dot { background: #b87333; }
 
-.palmares-athlete { font-weight: 700; color: var(--ink); }
+.competition-athlete { font-weight: 700; color: var(--ink); }
 
-.palmares-cat {
+.competition-cat {
   font-size: 0.82rem;
   color: rgba(13,10,7,0.5);
   justify-self: center;
   text-align: left;
 }
 
-.palmares-label {
+.competition-label {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -2209,11 +2209,11 @@ textarea:focus-visible {
   text-align: right;
 }
 
-.palmares-label--or     { color: #8a6810; }
-.palmares-label--argent { color: #606878; }
-.palmares-label--bronze { color: #8a4c10; }
+.competition-label--or     { color: #8a6810; }
+.competition-label--argent { color: #606878; }
+.competition-label--bronze { color: #8a4c10; }
 
-.palmares-note {
+.competition-note {
   font-size: 0.87rem;
   color: rgba(13,10,7,0.58);
   border-left: 2px solid rgba(196,151,46,0.3);
@@ -2224,14 +2224,14 @@ textarea:focus-visible {
   line-height: 1.65;
 }
 
-.palmares-media {
+.competition-media {
   display: flex;
   gap: 0.8rem;
   margin-top: 1rem;
   flex-wrap: wrap;
 }
 
-.palmares-media-placeholder {
+.competition-media-placeholder {
   flex: 1;
   min-width: 140px;
   padding: 1rem 1.5rem;
@@ -2243,12 +2243,12 @@ textarea:focus-visible {
   border: 1px dashed rgba(13,10,7,0.12);
 }
 
-.palmares-discipline-header {
+.competition-discipline-header {
   background: rgba(63,93,78,0.07) !important;
   padding: 0.4rem 1.1rem !important;
 }
 
-.palmares-discipline-label {
+.competition-discipline-label {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -2258,15 +2258,15 @@ textarea:focus-visible {
 }
 
 @media (max-width: 600px) {
-  .palmares-result {
+  .competition-result {
     grid-template-columns: 10px 1fr auto;
     grid-template-rows: auto auto;
   }
-  .palmares-result .palmares-cat {
+  .competition-result .competition-cat {
     grid-column: 2;
     grid-row: 2;
   }
-  .palmares-result .palmares-label {
+  .competition-result .competition-label {
     grid-row: 1;
     grid-column: 3;
   }
@@ -2280,7 +2280,7 @@ textarea:focus-visible {
   pointer-events: none;
 }
 
-/* ── Section événements à venir (palmares.html#evenements) ────────────── */
+/* ── Section événements à venir (competition.html#evenements) ────────────── */
 .evenements-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
 
 .evenement-card {
