@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devtaochinagot.github.io/taochinagot/sitemap.xml
