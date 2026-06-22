@@ -23,6 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Accordéon sous-menus mobile ---
+  document.querySelectorAll('.mobile-toggle').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const li = btn.closest('.mobile-has-sub');
+      const isOpen = li.classList.contains('open');
+      document.querySelectorAll('.mobile-has-sub.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) li.classList.add('open');
+      btn.setAttribute('aria-expanded', (!isOpen).toString());
+    });
+  });
+
   // --- FAQ accordion ---
   document.querySelectorAll('.faq-item').forEach((item) => {
     const question = item.querySelector('.faq-question');

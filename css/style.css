@@ -354,6 +354,43 @@ textarea:focus-visible {
 .has-dropdown:hover .dropdown-arrow,
 .has-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
 
+.mobile-has-sub .mobile-parent-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-toggle {
+  background: none;
+  border: none;
+  color: rgba(248, 242, 230, 0.7);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0 0.25rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.mobile-has-sub.open .mobile-toggle { transform: rotate(180deg); }
+
+.mobile-sub-list {
+  display: none;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid rgba(196, 151, 46, 0.3);
+}
+
+.mobile-has-sub.open .mobile-sub-list { display: flex; }
+
+.mobile-sub-list a {
+  font-size: clamp(1rem, 3.5vw, 1.35rem) !important;
+  opacity: 0.75;
+}
+
+/* kept for legacy, no longer used */
 .mobile-menu .mobile-sub a {
   padding-left: 2.5rem !important;
   opacity: 0.6;
@@ -459,8 +496,10 @@ textarea:focus-visible {
   z-index: 99;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: var(--space-md);
+  justify-content: flex-start;
+  padding: 5rem var(--space-md) var(--space-md);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   transform: translateX(100%);
   transition: transform 0.3s ease;
 }
@@ -470,7 +509,7 @@ textarea:focus-visible {
 .mobile-menu ul {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .mobile-menu a {
