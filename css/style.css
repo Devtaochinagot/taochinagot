@@ -2235,6 +2235,37 @@ textarea:focus-visible {
   letter-spacing: 0.01em;
 }
 
+.competition-event-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.competition-event-footer .competition-note {
+  flex: 1;
+  margin-top: 0;
+}
+
+.competition-poster {
+  flex: 0 0 120px;
+  width: 120px;
+  border-radius: var(--radius);
+  display: block;
+  box-shadow: 0 2px 12px rgba(13,10,7,0.15);
+}
+
+@media (max-width: 480px) {
+  .competition-event-footer {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .competition-poster {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
 .competition-media {
   display: flex;
   gap: 0.8rem;
