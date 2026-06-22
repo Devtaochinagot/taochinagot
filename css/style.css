@@ -2248,8 +2248,8 @@ textarea:focus-visible {
 }
 
 .competition-poster {
-  flex: 0 0 120px;
-  width: 120px;
+  flex: 0 0 200px;
+  width: 200px;
   border-radius: var(--radius);
   display: block;
   box-shadow: 0 2px 12px rgba(13,10,7,0.15);
@@ -2262,7 +2262,7 @@ textarea:focus-visible {
   }
   .competition-poster {
     width: 100%;
-    max-width: 200px;
+    max-width: 260px;
   }
 }
 
