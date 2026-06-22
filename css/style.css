@@ -822,11 +822,76 @@ textarea:focus-visible {
   display: block;
   text-decoration: none;
   color: inherit;
+  position: relative;
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .dojo-card:hover {
-  box-shadow: 0 6px 24px rgba(13,10,7,0.12);
+  box-shadow: 0 6px 24px rgba(13,10,7,0.18);
   transform: translateY(-3px);
+}
+
+.dojo-hover-panel {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 10, 7, 0.93);
+  color: var(--white);
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  z-index: 2;
+}
+.dojo-card:hover .dojo-hover-panel { opacity: 1; }
+
+.dojo-hover-discipline {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.dojo-hover-slots {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+.dojo-hover-slots li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+.dojo-hover-day {
+  font-weight: 700;
+  min-width: 4.5rem;
+  color: rgba(255,255,255,0.75);
+}
+.dojo-hover-public {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15em 0.5em;
+  border-radius: 2px;
+}
+.dojo-hover-public--enfants { background: rgba(196,151,46,0.25); color: var(--gold-soft); }
+.dojo-hover-public--adultes { background: rgba(168,32,26,0.25); color: #e07070; }
+
+.dojo-hover-cta {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-top: auto;
 }
 
 .dojo-card .dojo-image {
