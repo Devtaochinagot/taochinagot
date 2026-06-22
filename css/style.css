@@ -1401,6 +1401,16 @@ textarea:focus-visible {
   outline: none;
 }
 
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 500px) {
+  .form-row-split { grid-template-columns: 1fr; }
+}
+
 .contact-form .btn {
   align-self: flex-start;
   margin-top: 0.5rem;

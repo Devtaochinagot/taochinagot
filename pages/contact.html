@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Taochinagot</title>
 <meta name="description" content="Contactez-nous pour toute question ou inscription.">
-<link rel="stylesheet" href="../css/style.css?v=1782134366">
+<link rel="stylesheet" href="../css/style.css?v=1782134566">
 </head>
 <body>
 
@@ -108,9 +108,29 @@
             <option value="plaudren">Plaudren — Salle Ty An Holl</option>
           </select>
         </div>
+        <div class="form-row-split">
+          <div class="form-row">
+            <label for="discipline">Discipline souhaitée</label>
+            <select id="discipline" name="discipline">
+              <option value="">Je ne sais pas encore</option>
+              <option value="sanda">Sanda — Boxe chinoise</option>
+              <option value="taolu">Taolu — Formes</option>
+              <option value="les-deux">Les deux</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="public">Public concerné</label>
+            <select id="public" name="public">
+              <option value="">Non précisé</option>
+              <option value="enfant">Enfant (moins de 14 ans)</option>
+              <option value="ado">Adolescent (14–17 ans)</option>
+              <option value="adulte">Adulte (18 ans et +)</option>
+            </select>
+          </div>
+        </div>
         <div class="form-row">
           <label for="message">Message *</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Précisez si la demande concerne un enfant ou un adulte, et l'âge si besoin."></textarea>
+          <textarea id="message" name="message" rows="4" required placeholder="Des questions sur les horaires, les tarifs, le niveau requis…"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
       </form>
