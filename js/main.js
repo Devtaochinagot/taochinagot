@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Dropdown nav (touch uniquement — desktop géré par CSS hover) ---
   document.querySelectorAll('.has-dropdown').forEach((li) => {
     li.querySelector(':scope > a').addEventListener('click', (e) => {
-      if (window.innerWidth >= 980) return; // desktop : laisser naviguer directement
+      if (window.innerWidth >= 1024) return; // desktop : laisser naviguer directement
       e.preventDefault();
       const isOpen = li.classList.contains('open');
       document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (overlayCards.length) {
     overlayCards.forEach(card => {
       card.addEventListener('click', function(e) {
-        if (window.innerWidth >= 980) return; // desktop : géré par CSS hover
+        if (window.innerWidth >= 1024) return; // desktop : géré par CSS hover
         if (!this.classList.contains('is-active')) {
           e.preventDefault();
           overlayCards.forEach(c => c.classList.remove('is-active'));
