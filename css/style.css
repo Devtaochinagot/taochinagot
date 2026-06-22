@@ -566,25 +566,25 @@ textarea:focus-visible {
   background-position: center;
 }
 
-/* Panel Taolu : couvre la moitié gauche (55% de large), coupure diagonale sur le bord droit */
+/* Mobile : panneaux pleine largeur, clip-path gère le découpage visuel */
 .hero-bg-tao {
-  left: 0; width: 55%;
-  clip-path: polygon(0 0, 95% 0, 87% 100%, 0 100%);
+  left: 0; width: 100%;
+  clip-path: polygon(0 0, 58% 0, 48% 100%, 0 100%);
   background-color: #1a1008;
-  background-position: 20% center;
+  background-position: 30% center;
 }
 
-/* Panel Sanda : couvre la moitié droite (55% de large), coupure diagonale sur le bord gauche */
 .hero-bg-sanda {
-  right: 0; width: 55%;
-  clip-path: polygon(13% 0, 100% 0, 100% 100%, 5% 100%);
+  right: 0; width: 100%;
+  clip-path: polygon(52% 0, 100% 0, 100% 100%, 42% 100%);
   background-color: #0f0a04;
-  background-position: 80% center;
+  background-position: 70% center;
 }
 
+/* Desktop : panneaux à 55%, position centrée */
 @media (min-width: 768px) {
-  .hero-bg-tao   { background-position: center; }
-  .hero-bg-sanda { background-position: center; }
+  .hero-bg-tao   { width: 55%; clip-path: polygon(0 0, 95% 0, 87% 100%, 0 100%); background-position: center; }
+  .hero-bg-sanda { width: 55%; clip-path: polygon(13% 0, 100% 0, 100% 100%, 5% 100%); background-position: center; }
 }
 
 /* Overlay global pour lisibilité du texte */
