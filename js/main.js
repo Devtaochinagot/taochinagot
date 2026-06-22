@@ -7,11 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.querySelector('.burger');
   const mobileMenu = document.querySelector('.mobile-menu');
 
+  const resetSubMenus = () => {
+    document.querySelectorAll('.mobile-has-sub').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.mobile-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
   if (burger && mobileMenu) {
     burger.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) resetSubMenus();
     });
 
     mobileMenu.querySelectorAll('a').forEach((link) => {
@@ -22,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Réinitialise le menu si Safari le restaure depuis le BFCache
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      resetSubMenus();
+      if (mobileMenu) {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+  });
 
   // --- Accordéon sous-menus mobile ---
   document.querySelectorAll('.mobile-toggle').forEach((btn) => {
