@@ -566,25 +566,37 @@ textarea:focus-visible {
   background-position: center;
 }
 
-/* Mobile : panneaux pleine largeur, clip-path gère le découpage visuel */
+/* Mobile : empilement vertical — Taolu haut, Sanda bas */
 .hero-bg-tao {
-  left: 0; width: 100%;
-  clip-path: polygon(0 0, 58% 0, 48% 100%, 0 100%);
+  left: 0; right: 0; width: 100%;
+  top: 0; bottom: 50%;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
   background-color: #1a1008;
-  background-position: 68% center;
+  background-position: center 30%;
 }
 
 .hero-bg-sanda {
-  right: 0; width: 100%;
-  clip-path: polygon(52% 0, 100% 0, 100% 100%, 42% 100%);
+  left: 0; right: 0; width: 100%;
+  top: 50%; bottom: 0;
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
   background-color: #0f0a04;
-  background-position: 32% center;
+  background-position: center 40%;
 }
 
-/* Desktop : panneaux à 55%, position centrée */
+/* Desktop : split diagonal côte à côte */
 @media (min-width: 768px) {
-  .hero-bg-tao   { width: 55%; clip-path: polygon(0 0, 95% 0, 87% 100%, 0 100%); background-position: center; }
-  .hero-bg-sanda { width: 55%; clip-path: polygon(13% 0, 100% 0, 100% 100%, 5% 100%); background-position: center; }
+  .hero-bg-tao {
+    left: 0; right: auto; width: 55%;
+    top: 0; bottom: 0;
+    clip-path: polygon(0 0, 95% 0, 87% 100%, 0 100%);
+    background-position: center;
+  }
+  .hero-bg-sanda {
+    left: auto; right: 0; width: 55%;
+    top: 0; bottom: 0;
+    clip-path: polygon(13% 0, 100% 0, 100% 100%, 5% 100%);
+    background-position: center;
+  }
 }
 
 /* Overlay global pour lisibilité du texte */
