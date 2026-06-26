@@ -1254,6 +1254,7 @@ textarea:focus-visible {
    UTILITAIRES
    ============================================================ */
 .mt-lg { margin-top: var(--space-lg); }
+.cta-lede { max-width: 52ch; margin: 0.6rem auto 1.8rem; }
 
 /* ============================================================
    ÉQUIPE — cartes coachs
