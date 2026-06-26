@@ -1129,8 +1129,8 @@ textarea:focus-visible {
 .footer-grid ul a:hover { color: var(--gold); }
 
 .footer-grid > div:first-child p {
-  max-width: 40ch;
-  font-size: 0.9rem;
+  max-width: 38ch;
+  font-size: 0.92rem;
   line-height: 1.65;
 }
 
