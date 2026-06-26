@@ -105,13 +105,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Header : ombre légère au scroll (subtil) ---
+  // --- Header smart (ombre + masquage au scroll bas) + bouton retour en haut ---
   const header = document.querySelector('.site-header');
   if (header) {
+    const btt = document.createElement('button');
+    btt.className = 'back-to-top';
+    btt.setAttribute('aria-label', 'Retour en haut');
+    btt.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>';
+    document.body.appendChild(btt);
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    let lastY = 0;
     const onScroll = () => {
-      header.style.boxShadow = window.scrollY > 8
-        ? '0 6px 18px rgba(0,0,0,0.25)'
-        : 'none';
+      const y = window.scrollY;
+      header.style.boxShadow = y > 8 ? '0 6px 18px rgba(0,0,0,0.25)' : 'none';
+      if (y > 80) {
+        header.classList.toggle('header-hidden', y > lastY);
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      lastY = y;
+      btt.classList.toggle('visible', y > 400);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

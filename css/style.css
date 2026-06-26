@@ -213,7 +213,9 @@ textarea:focus-visible {
   z-index: 100;
   background: var(--ink);
   border-bottom: 1px solid rgba(196, 151, 46, 0.18);
+  transition: transform 0.28s ease;
 }
+.site-header.header-hidden { transform: translateY(-100%); }
 
 .nav-bar {
   display: flex;
@@ -791,6 +793,18 @@ textarea:focus-visible {
 .bg-ink .eyebrow { color: var(--gold); }
 .bg-ink .eyebrow::before { background: var(--gold); }
 
+/* Ligne d'accent lacquer sous les h2 (sections claires uniquement) */
+.section-head h2::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--lacquer);
+  margin-top: 0.6rem;
+}
+.section-head.center h2::after { margin-left: auto; margin-right: auto; }
+.bg-ink .section-head h2::after { display: none; }
+
 .card-grid {
   display: grid;
   gap: 1.5rem;
@@ -873,6 +887,20 @@ textarea:focus-visible {
   max-height: 10rem;
   opacity: 1;
 }
+
+/* Bordure gauche lacquer au survol des cards photo */
+.discipline-card--photo::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--lacquer);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.discipline-card--photo:hover::before,
+.discipline-card--photo.is-active::before { opacity: 1; }
 
 .discipline-card-overlay a {
   color: var(--gold-soft);
@@ -2586,3 +2614,29 @@ textarea:focus-visible {
   .lb-prev { left: 0.25rem; }
   .lb-next { right: 0.25rem; }
 }
+
+/* Bouton retour en haut */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--lacquer);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  z-index: 90;
+  box-shadow: 0 4px 14px rgba(168,32,26,0.4);
+  pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.back-to-top:hover { background: var(--lacquer-deep); }
+.back-to-top svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
