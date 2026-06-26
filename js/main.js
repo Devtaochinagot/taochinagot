@@ -3,6 +3,17 @@
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Lien de nav actif (auto-détection page courante) ---
+  const curPage = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.includes('#')) return;
+    const page = href.split('/').pop() || 'index.html';
+    const match = page === curPage;
+    a.classList.toggle('active', match);
+    match ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
+  });
+
   // --- Menu mobile (burger) ---
   const burger = document.querySelector('.burger');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -173,6 +184,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       window.location.href = `mailto:contact@taochinagot.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
+  }
+
+  // --- Parallax hero (desktop uniquement) ---
+  const heroBgTao = document.querySelector('.hero-bg-tao');
+  const heroBgSanda = document.querySelector('.hero-bg-sanda');
+  if (heroBgTao && heroBgSanda && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const heroEl = heroBgTao.closest('.hero');
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth < 768) return;
+      const rect = heroEl.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      const off = (-rect.top * 0.15).toFixed(1);
+      heroBgTao.style.backgroundPositionY = `calc(30% + ${off}px)`;
+      heroBgSanda.style.backgroundPositionY = `calc(40% + ${off}px)`;
+    }, { passive: true });
+  }
+
+  // --- Timeline : ligne qui se dessine au scroll ---
+  const timeline = document.querySelector('.timeline');
+  if (timeline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        timeline.classList.add('line-visible');
+        obs.disconnect();
+      }
+    }, { threshold: 0.08 }).observe(timeline);
   }
 
   // --- Scroll reveal (fade-up au scroll) ---

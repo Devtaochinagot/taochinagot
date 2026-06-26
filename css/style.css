@@ -207,6 +207,23 @@ textarea:focus-visible {
 /* ============================================================
    HEADER / NAVIGATION
    ============================================================ */
+/* Skip link accessibilité */
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  background: var(--lacquer);
+  color: #fff;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; outline: none; }
+
 .site-header {
   position: sticky;
   top: 0;
@@ -1619,6 +1636,10 @@ textarea:focus-visible {
   bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom, var(--gold), rgba(196,151,46,0.15));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .timeline::before { transform-origin: top center; transform: scaleY(0); transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .timeline.line-visible::before { transform: scaleY(1); }
 }
 
 .timeline-item {
