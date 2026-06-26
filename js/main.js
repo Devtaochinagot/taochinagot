@@ -3,6 +3,15 @@
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Barre de progression scroll ---
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.prepend(progressBar);
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = max > 0 ? (window.scrollY / max * 100).toFixed(1) + '%' : '0%';
+  }, { passive: true });
+
   // --- Lien de nav actif (auto-détection page courante) ---
   const curPage = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {

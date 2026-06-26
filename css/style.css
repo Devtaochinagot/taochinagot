@@ -2642,6 +2642,18 @@ textarea:focus-visible {
   .lb-next { right: 0.25rem; }
 }
 
+/* Barre de progression scroll */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--lacquer);
+  z-index: 200;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
 /* Focus visible unifié — contour gold sur tous les éléments interactifs */
 :focus-visible {
   outline: 2px solid var(--gold);
