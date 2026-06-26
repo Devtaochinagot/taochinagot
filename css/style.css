@@ -523,25 +523,12 @@ textarea:focus-visible {
    ============================================================ */
 .hero {
   position: relative;
+  z-index: 1;
   background: var(--ink);
   color: var(--paper);
   padding: var(--space-xl) 0 calc(var(--space-lg) + 5vw);
   overflow: hidden;
-}
-
-/* Diagonal bas-gauche — ::after overlay évite que le fond de page
-   transparaisse à travers un clip-path (artefact triangle blanc) */
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: calc(5vw + 2px);
-  background: var(--paper);
-  clip-path: polygon(0 0, 0 100%, 100% 100%);
-  z-index: 4;
-  pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
 }
 
 /* Panneaux photo scindés en diagonale */
@@ -2130,7 +2117,8 @@ textarea:focus-visible {
 }
 
 /* ── Section vidéo ── */
-.video-section { background: var(--ink); color: var(--paper); }
+/* margin-top négatif comble le triangle découpé par le clip-path du hero (fond sombre → fond sombre, pas de triangle blanc) */
+.video-section { background: var(--ink); color: var(--paper); margin-top: calc(-5vw); padding-top: calc(var(--space-lg) + 5vw); }
 .video-section .section-head p { color: rgba(248, 242, 230, 0.58); }
 .video-section .eyebrow { color: var(--gold); }
 .video-section .eyebrow::before { background: var(--gold); }
