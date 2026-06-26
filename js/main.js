@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = heroEl.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > window.innerHeight) return;
       const off = (-rect.top * 0.15).toFixed(1);
-      heroBgTao.style.backgroundPositionY = `calc(30% + ${off}px)`;
+      heroBgTao.style.backgroundPositionY  = `calc(30% + ${off}px)`;
       heroBgSanda.style.backgroundPositionY = `calc(40% + ${off}px)`;
     }, { passive: true });
   }
