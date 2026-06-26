@@ -212,6 +212,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08 }).observe(timeline);
   }
 
+  // --- CTA sticky mobile (hors page contact) ---
+  if (!location.pathname.includes('contact')) {
+    const isSubpage = location.pathname.includes('/pages/');
+    const cta = document.createElement('a');
+    cta.href = isSubpage ? 'contact.html#formulaire' : 'pages/contact.html#formulaire';
+    cta.className = 'cta-sticky-mobile';
+    cta.textContent = '1er cours offert — Essayer gratuitement →';
+    document.body.appendChild(cta);
+    setTimeout(() => cta.classList.add('visible'), 2500);
+  }
+
+  // --- Filtre par année — competition.html ---
+  const yearGroups = document.querySelectorAll('.competition-year-group');
+  if (yearGroups.length) {
+    const years = [...yearGroups].map(g => g.id);
+    const bar = document.createElement('div');
+    bar.className = 'year-filter';
+    const allBtn = document.createElement('button');
+    allBtn.className = 'year-btn active';
+    allBtn.dataset.year = 'all';
+    allBtn.textContent = 'Toutes';
+    bar.appendChild(allBtn);
+    years.forEach(y => {
+      const btn = document.createElement('button');
+      btn.className = 'year-btn';
+      btn.dataset.year = y;
+      btn.textContent = y;
+      bar.appendChild(btn);
+    });
+    yearGroups[0].parentNode.insertBefore(bar, yearGroups[0]);
+    bar.addEventListener('click', e => {
+      const btn = e.target.closest('.year-btn');
+      if (!btn) return;
+      bar.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const year = btn.dataset.year;
+      yearGroups.forEach(g => { g.hidden = year !== 'all' && g.id !== year; });
+    });
+  }
+
   // --- Scroll reveal (fade-up au scroll) ---
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const revealObs = new IntersectionObserver((entries) => {
