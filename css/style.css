@@ -527,7 +527,21 @@ textarea:focus-visible {
   color: var(--paper);
   padding: var(--space-xl) 0 calc(var(--space-lg) + 5vw);
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+}
+
+/* Diagonal bas-gauche — ::after overlay évite que le fond de page
+   transparaisse à travers un clip-path (artefact triangle blanc) */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(5vw + 2px);
+  background: var(--paper);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  z-index: 4;
+  pointer-events: none;
 }
 
 /* Panneaux photo scindés en diagonale */
@@ -1220,11 +1234,25 @@ textarea:focus-visible {
    PAGE HERO (sous-pages)
    ============================================================ */
 .page-hero {
+  position: relative;
   background: var(--ink);
   color: var(--paper);
   padding: var(--space-xl) 0 calc(var(--space-lg) + 4vw);
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(4vw + 2px);
+  background: var(--paper);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  z-index: 4;
+  pointer-events: none;
 }
 
 .page-hero h1 {
