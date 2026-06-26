@@ -805,9 +805,6 @@ textarea:focus-visible {
 .discipline-card--photo.is-active .discipline-card-bg {
   transform: scale(1.04);
 }
-.discipline-card--ink {
-  background: linear-gradient(135deg, var(--ink-soft), var(--ink));
-}
 .discipline-card-overlay {
   position: absolute;
   inset: 0;
@@ -845,17 +842,6 @@ textarea:focus-visible {
 .discipline-card--photo.is-active .discipline-card-overlay p {
   max-height: 10rem;
   opacity: 1;
-}
-
-.discipline-card .num {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: rgba(196, 151, 46, 0.5);
-  letter-spacing: 0.22em;
-  margin-bottom: 1.3rem;
-  display: block;
-  text-transform: uppercase;
 }
 
 .discipline-card h3 {
@@ -1267,7 +1253,6 @@ textarea:focus-visible {
 /* ============================================================
    UTILITAIRES
    ============================================================ */
-.text-center { text-align: center; }
 .mt-lg { margin-top: var(--space-lg); }
 
 /* ============================================================
