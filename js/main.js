@@ -160,4 +160,123 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = `mailto:contact@taochinagot.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
+
+  // --- Scroll reveal (fade-up au scroll) ---
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+    // Ajoute .reveal aux éléments cibles, avec décalage pour les grilles
+    const GRIDS = '.card-grid, .dojo-grid, .competition-athletes, .coach-grid, .evenements-list';
+    document.querySelectorAll(GRIDS).forEach(grid => {
+      Array.from(grid.children).forEach((child, i) => {
+        child.style.setProperty('--reveal-delay', Math.min(i * 0.09, 0.36) + 's');
+      });
+    });
+
+    const TARGETS = [
+      '.section-head', '.discipline-card', '.dojo-card', '.profile-card',
+      '.faq-item', '.timeline-item', '.competition-event',
+      '.competition-athlete-card', '.video-link-card', '.evenement-card',
+    ].join(',');
+
+    document.querySelectorAll(TARGETS).forEach(el => {
+      el.classList.add('reveal');
+      revealObs.observe(el);
+    });
+  }
+
+  // --- Compteurs animés sur les stat-number ---
+  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      counterObs.unobserve(e.target);
+      const el = e.target;
+      const text = el.textContent.trim();
+      const match = text.match(/(\d+)/);
+      if (!match) return;
+      const target = parseInt(match[1], 10);
+      const pre = text.slice(0, match.index);
+      const suf = text.slice(match.index + match[0].length);
+      const duration = 1300;
+      const t0 = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - t0) / duration, 1);
+        el.textContent = pre + Math.round(easeOutCubic(p) * target) + suf;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }, { threshold: 0.7 });
+
+  document.querySelectorAll('.stat-number').forEach(el => counterObs.observe(el));
+
+  // --- Lightbox photos compétition ---
+  const lbImgs = document.querySelectorAll('.competition-athlete-card img');
+  if (lbImgs.length) {
+    const lb = document.createElement('div');
+    lb.id = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Photo en grand');
+    lb.innerHTML =
+      '<button class="lb-close" aria-label="Fermer">&times;</button>' +
+      '<button class="lb-prev" aria-label="Photo précédente">&#8249;</button>' +
+      '<img class="lb-img" src="" alt="">' +
+      '<p class="lb-caption"></p>' +
+      '<button class="lb-next" aria-label="Photo suivante">&#8250;</button>';
+    document.body.appendChild(lb);
+
+    const lbImg = lb.querySelector('.lb-img');
+    const lbCap = lb.querySelector('.lb-caption');
+    const list = Array.from(lbImgs);
+    let cur = 0;
+
+    function lbOpen(idx) {
+      cur = (idx + list.length) % list.length;
+      lbImg.src = list[cur].src;
+      lbImg.alt = list[cur].alt;
+      lbCap.textContent = list[cur].alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lb.querySelector('.lb-close').focus();
+    }
+    function lbClose() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      list[cur].closest('.competition-athlete-card')?.focus();
+    }
+
+    list.forEach((img, i) => {
+      img.tabIndex = 0;
+      img.addEventListener('click', () => lbOpen(i));
+      img.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lbOpen(i); }
+      });
+    });
+
+    lb.querySelector('.lb-close').addEventListener('click', lbClose);
+    lb.querySelector('.lb-prev').addEventListener('click', () => lbOpen(cur - 1));
+    lb.querySelector('.lb-next').addEventListener('click', () => lbOpen(cur + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+    lb.addEventListener('keydown', e => {
+      if (e.key === 'Escape') lbClose();
+      if (e.key === 'ArrowLeft') lbOpen(cur - 1);
+      if (e.key === 'ArrowRight') lbOpen(cur + 1);
+    });
+
+    // Swipe tactile
+    let swipeX = 0;
+    lb.addEventListener('touchstart', e => { swipeX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      const diff = swipeX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 48) diff > 0 ? lbOpen(cur + 1) : lbOpen(cur - 1);
+    }, { passive: true });
+  }
 });
