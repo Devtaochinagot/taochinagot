@@ -205,20 +205,6 @@ textarea:focus-visible {
 }
 
 /* ============================================================
-   BRUSH DIVIDER (maintenu pour compatibilité)
-   ============================================================ */
-.brush-divider {
-  width: 100%;
-  max-width: 220px;
-  margin: var(--space-md) auto;
-  display: block;
-  color: var(--gold);
-  opacity: 0.85;
-}
-
-.brush-divider--left { margin: var(--space-md) 0; }
-
-/* ============================================================
    HEADER / NAVIGATION
    ============================================================ */
 .site-header {
@@ -388,13 +374,6 @@ textarea:focus-visible {
 .mobile-sub-list a {
   font-size: clamp(1rem, 3.5vw, 1.35rem) !important;
   opacity: 0.75;
-}
-
-/* kept for legacy, no longer used */
-.mobile-menu .mobile-sub a {
-  padding-left: 2.5rem !important;
-  opacity: 0.6;
-  font-size: 0.82em;
 }
 
 /* ============================================================
