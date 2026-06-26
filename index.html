@@ -16,8 +16,8 @@
 <meta property="og:image"       content="https://devtaochinagot.github.io/taochinagot/img/logo.webp">
 <link rel="canonical" href="https://devtaochinagot.github.io/taochinagot/">
 <meta name="theme-color" content="#0d0a07">
-<link rel="preload" href="img/hero-tao.webp" as="image" fetchpriority="high">
-<link rel="preload" href="img/hero-sanda.webp" as="image" fetchpriority="high">
+<link rel="preload" href="img/hero-tao-800.webp" as="image" fetchpriority="high" imagesrcset="img/hero-tao-800.webp 1x, img/hero-tao.webp 2x">
+<link rel="preload" href="img/hero-sanda-800.webp" as="image" fetchpriority="high" imagesrcset="img/hero-sanda-800.webp 1x, img/hero-sanda.webp 2x">
 <link rel="preload" href="fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
@@ -151,8 +151,8 @@
 
   <!-- Remplacer les src par vos photos : hero-tao.jpg (Taolu) et hero-sanda.jpg (Sanda) -->
   <div class="hero-bg" aria-hidden="true">
-    <div class="hero-bg-panel hero-bg-tao" style="background-image:url('img/hero-tao.webp')"></div>
-    <div class="hero-bg-panel hero-bg-sanda" style="background-image:url('img/hero-sanda.webp')"></div>
+    <div class="hero-bg-panel hero-bg-tao"></div>
+    <div class="hero-bg-panel hero-bg-sanda"></div>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -252,7 +252,7 @@
 
     <div class="dojo-grid">
       <a href="pages/contact.html" class="dojo-card">
-        <div class="dojo-image"><img src="img/dojo-sene.webp" alt="Dojo de Séné — Complexe sportif Le Derf"></div>
+        <div class="dojo-image"><img src="img/dojo-sene.webp" srcset="img/dojo-sene-600.webp 600w, img/dojo-sene.webp 1260w" sizes="(max-width: 768px) 100vw, 33vw" alt="Dojo de Séné — Complexe sportif Le Derf" loading="lazy"></div>
         <div class="dojo-body">
           <h3>Séné</h3>
           <p class="dojo-meta">Complexe sportif Le Derf</p>
@@ -283,7 +283,7 @@
         </div>
       </a>
       <a href="pages/contact.html" class="dojo-card">
-        <div class="dojo-image"><img src="img/dojo-plaudren.webp" alt="Dojo de Plaudren — Salle Ty An Holl"></div>
+        <div class="dojo-image"><img src="img/dojo-plaudren.webp" srcset="img/dojo-plaudren-800.webp 800w, img/dojo-plaudren.webp 2000w" sizes="(max-width: 768px) 100vw, 33vw" alt="Dojo de Plaudren — Salle Ty An Holl" loading="lazy"></div>
         <div class="dojo-body">
           <h3>Plaudren</h3>
           <p class="dojo-meta">Salle Ty An Holl</p>

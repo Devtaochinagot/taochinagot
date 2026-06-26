@@ -565,6 +565,7 @@ textarea:focus-visible {
   clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
   background-color: #1a1008;
   background-position: center 30%;
+  background-image: url('../img/hero-tao-800.webp');
 }
 
 .hero-bg-sanda {
@@ -573,6 +574,13 @@ textarea:focus-visible {
   clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
   background-color: #0f0a04;
   background-position: center 40%;
+  background-image: url('../img/hero-sanda-800.webp');
+}
+
+/* Desktop : version pleine résolution */
+@media (min-width: 769px) {
+  .hero-bg-tao  { background-image: image-set(url('../img/hero-tao-800.webp') 1x, url('../img/hero-tao.webp') 2x); }
+  .hero-bg-sanda { background-image: image-set(url('../img/hero-sanda-800.webp') 1x, url('../img/hero-sanda.webp') 2x); }
 }
 
 /* Desktop : split diagonal côte à côte */
