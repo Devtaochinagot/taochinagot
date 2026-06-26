@@ -756,7 +756,8 @@ textarea:focus-visible {
 /* ============================================================
    DISCIPLINES — fond encre
    ============================================================ */
-.bg-ink { background: var(--ink); color: var(--paper); }
+.bg-ink        { background: var(--ink); color: var(--paper); }
+.bg-paper-warm { background: var(--paper-warm); }
 .bg-ink .section-head p { color: rgba(248, 242, 230, 0.58); }
 .bg-ink .eyebrow { color: var(--gold); }
 .bg-ink .eyebrow::before { background: var(--gold); }
