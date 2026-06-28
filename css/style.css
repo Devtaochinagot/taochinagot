@@ -686,32 +686,23 @@ textarea:focus-visible {
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid rgba(196, 151, 46, 0.18);
   padding-top: var(--space-md);
 }
 
 .hero-stats > div {
   padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
-  border-right: 1px solid rgba(196, 151, 46, 0.12);
 }
 
-.hero-stats > div:last-child { border-right: none; }
-
-/* 2×2 sur mobile : ajustements des bordures */
-.hero-stats > div:nth-child(2) { border-right: none; }
-.hero-stats > div:nth-child(3) { border-right: 1px solid rgba(196, 151, 46, 0.12); }
 .hero-stats > div:nth-child(3),
 .hero-stats > div:nth-child(4) {
   margin-top: var(--space-sm);
   padding-top: var(--space-sm);
-  border-top: 1px solid rgba(196, 151, 46, 0.12);
 }
 
 @media (min-width: 768px) {
   .hero-stats { grid-template-columns: repeat(4, 1fr); }
-  .hero-stats > div:nth-child(2) { border-right: 1px solid rgba(196, 151, 46, 0.12); }
   .hero-stats > div:nth-child(3),
-  .hero-stats > div:nth-child(4) { margin-top: 0; padding-top: var(--space-xs); border-top: none; }
+  .hero-stats > div:nth-child(4) { margin-top: 0; padding-top: var(--space-xs); }
 }
 
 .bg-ink .hero-stats {
