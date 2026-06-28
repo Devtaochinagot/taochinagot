@@ -621,8 +621,8 @@ textarea:focus-visible {
 
 /* Mobile : supprime les clip-path pour éviter le bandeau noir diagonal */
 @media (max-width: 767px) {
-  .hero-bg-tao  { clip-path: none; }
-  .hero-bg-sanda { clip-path: none; }
+  .hero-bg-tao  { clip-path: none; background-position: center 50%; }
+  .hero-bg-sanda { clip-path: none; background-size: auto 130%; background-position: center 50%; }
 }
 
 /* Overlay global pour lisibilité du texte */
