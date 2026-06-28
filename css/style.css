@@ -658,7 +658,7 @@ textarea:focus-visible {
 
 .hero-lede {
   font-size: 1.05rem;
-  color: rgba(248, 242, 230, 0.68);
+  color: rgba(248, 242, 230, 0.90);
   max-width: 56ch;
   margin-bottom: var(--space-md);
   line-height: 1.75;
