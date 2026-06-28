@@ -571,6 +571,16 @@ textarea:focus-visible {
   z-index: 0;
 }
 
+/* Comble le gap diagonal entre les deux panneaux sur mobile */
+@media (max-width: 767px) {
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #1a1008 35%, #0f0a04 65%);
+  }
+}
+
 .hero-bg-panel {
   position: absolute;
   top: 0; bottom: 0;
