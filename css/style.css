@@ -581,7 +581,7 @@ textarea:focus-visible {
 /* Mobile : empilement vertical — Taolu haut, Sanda bas */
 .hero-bg-tao {
   left: 0; right: 0; width: 100%;
-  top: 0; bottom: 45%;
+  top: 0; bottom: 50%;
   clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
   background-color: #1a1008;
   background-position: center 30%;
@@ -590,7 +590,7 @@ textarea:focus-visible {
 
 .hero-bg-sanda {
   left: 0; right: 0; width: 100%;
-  top: 45%; bottom: 0;
+  top: 50%; bottom: 0;
   clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
   background-color: #0f0a04;
   background-position: center 40%;
