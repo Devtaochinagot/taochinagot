@@ -126,7 +126,8 @@
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="main-content">
+<main id="main-content">
+<section class="hero">
 
   <!-- Remplacer les src par vos photos : hero-tao.jpg (Taolu) et hero-sanda.jpg (Sanda) -->
   <div class="hero-bg" aria-hidden="true">
@@ -246,7 +247,7 @@
         </div>
       </a>
       <a href="pages/contact.html" class="dojo-card">
-        <div class="dojo-image"><img src="img/dojo-surzur.webp" alt="Dojo de Surzur — Salle omnisport"></div>
+        <div class="dojo-image"><img src="img/dojo-surzur.webp" srcset="img/dojo-surzur-600.webp 600w, img/dojo-surzur.webp 1182w" sizes="(max-width: 768px) 100vw, 33vw" alt="Dojo de Surzur — Salle omnisport" loading="lazy"></div>
         <div class="dojo-body">
           <h3>Surzur</h3>
           <p class="dojo-meta">Salle omnisport</p>
@@ -350,6 +351,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
+</main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
