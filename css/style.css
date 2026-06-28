@@ -585,7 +585,7 @@ textarea:focus-visible {
   clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
   background-color: #1a1008;
   background-position: center 30%;
-  background-image: url('../img/hero-tao-800.webp');
+  background-image: url('../img/hero-tao.webp');
 }
 
 .hero-bg-sanda {
@@ -594,13 +594,7 @@ textarea:focus-visible {
   clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
   background-color: #0f0a04;
   background-position: center 40%;
-  background-image: url('../img/hero-sanda-800.webp');
-}
-
-/* Desktop : version pleine résolution */
-@media (min-width: 769px) {
-  .hero-bg-tao  { background-image: image-set(url('../img/hero-tao-800.webp') 1x, url('../img/hero-tao.webp') 2x); }
-  .hero-bg-sanda { background-image: image-set(url('../img/hero-sanda-800.webp') 1x, url('../img/hero-sanda.webp') 2x); }
+  background-image: url('../img/hero-sanda.webp');
 }
 
 /* Desktop : split diagonal côte à côte */
@@ -680,32 +674,24 @@ textarea:focus-visible {
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid rgba(196, 151, 46, 0.18);
   padding-top: var(--space-md);
 }
 
 .hero-stats > div {
   padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
-  border-right: 1px solid rgba(196, 151, 46, 0.12);
 }
 
-.hero-stats > div:last-child { border-right: none; }
-
-/* 2×2 sur mobile : ajustements des bordures */
-.hero-stats > div:nth-child(2) { border-right: none; }
-.hero-stats > div:nth-child(3) { border-right: 1px solid rgba(196, 151, 46, 0.12); }
+/* 2×2 sur mobile */
 .hero-stats > div:nth-child(3),
 .hero-stats > div:nth-child(4) {
   margin-top: var(--space-sm);
   padding-top: var(--space-sm);
-  border-top: 1px solid rgba(196, 151, 46, 0.12);
 }
 
 @media (min-width: 768px) {
   .hero-stats { grid-template-columns: repeat(4, 1fr); }
-  .hero-stats > div:nth-child(2) { border-right: 1px solid rgba(196, 151, 46, 0.12); }
   .hero-stats > div:nth-child(3),
-  .hero-stats > div:nth-child(4) { margin-top: 0; padding-top: var(--space-xs); border-top: none; }
+  .hero-stats > div:nth-child(4) { margin-top: 0; padding-top: var(--space-xs); }
 }
 
 .bg-ink .hero-stats {
