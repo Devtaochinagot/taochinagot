@@ -571,12 +571,6 @@ textarea:focus-visible {
   z-index: 0;
 }
 
-/* Mobile : pas de clip-path diagonal pour éviter le gap entre les panneaux */
-@media (max-width: 767px) {
-  .hero-bg-tao  { clip-path: none; }
-  .hero-bg-sanda { clip-path: none; }
-}
-
 .hero-bg-panel {
   position: absolute;
   top: 0; bottom: 0;
@@ -623,6 +617,12 @@ textarea:focus-visible {
     clip-path: polygon(13% 0, 100% 0, 100% 100%, 5% 100%);
     background-position: center;
   }
+}
+
+/* Mobile : supprime les clip-path pour éviter le bandeau noir diagonal */
+@media (max-width: 767px) {
+  .hero-bg-tao  { clip-path: none; }
+  .hero-bg-sanda { clip-path: none; }
 }
 
 /* Overlay global pour lisibilité du texte */
